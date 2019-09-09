@@ -1,0 +1,13 @@
+.app {
+  background-image: url("./assets/Illustration.svg");
+  background-repeat: no-repeat;
+  background-color: #f5f7fa;
+  background-size: cover;
+  background-position: center;
+
+  &__content {
+    height: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,249 @@
+.input {
+  margin-bottom: 20px;
+}
+
+.text-field {
+  display: flex;
+  position: relative;
+  width: 280px;
+  padding-top: 6px;
+  font-size: 1rem;
+  line-height: 1rem;
+  overflow: hidden;
+
+  > input[type="text"],
+  > input[type="password"],
+  > input[type="date"],
+  > input[type="email"],
+  > textarea {
+    width: 100%;
+    height: inherit;
+    margin: 0;
+    padding: 13px;
+    transition: border 0.2s, box-shadow 0.2s;
+
+    border: solid 1px; // Safari
+    border-radius: 4px;
+    border-color: lighten(#000000, 80);
+    border-top-color: transparent;
+
+    background-color: transparent;
+    color: lighten(#000000, 20);
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    box-shadow: none; // Firefox
+    caret-color: #326fff;
+    box-sizing: border-box;
+  }
+
+  > input + span,
+  > textarea + span {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+
+    border-color: lighten(#000000, 80);
+    color: rgba(45, 58, 64, 0.3);
+
+    font-size: 75%;
+    line-height: 15px;
+
+    cursor: text;
+  }
+
+  > input + span::before,
+  > input + span::after,
+  > textarea + span::before,
+  > textarea + span::after {
+    display: block;
+    min-width: 10px;
+    height: 8px;
+    margin-top: 6px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    border-top: solid 1px;
+    border-top-color: lighten(#000000, 80);
+
+    box-shadow: inset 0 1px transparent;
+
+    content: "";
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  > input + span::before,
+  > textarea + span::before {
+    margin-right: 4px;
+
+    border-left: solid 1px transparent;
+    border-radius: 4px 0;
+  }
+
+  > input + span::after,
+  > textarea + span::after {
+    flex-grow: 1;
+    margin-left: 4px;
+
+    border-right: solid 1px transparent;
+    border-radius: 0 4px;
+  }
+
+  &:hover > input,
+  &:hover > textarea {
+    border-color: rgba(45, 58, 64, 0.3);
+    border-top-color: transparent;
+  }
+
+  &:hover > input + span::before,
+  &:hover > textarea + span::before,
+  &:hover > input + span::after,
+  &:hover > textarea + span::after {
+    border-top-color: 1px solid rgba(116, 130, 150, 0.6);
+  }
+
+  &:hover > input:not(:focus):placeholder-shown,
+  &:hover > textarea:not(:focus):placeholder-shown {
+    border-color: 1px solid rgba(116, 130, 150, 0.2);
+  }
+
+  > input:not(:focus):placeholder-shown,
+  > textarea:not(:focus):placeholder-shown {
+    border-top-color: lighten(#000000, 80);
+  }
+
+  > input:not(:focus):placeholder-shown + span,
+  > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 60px;
+  }
+
+  > input:not(:focus):placeholder-shown + span::before,
+  > textarea:not(:focus):placeholder-shown + span::before,
+  > input:not(:focus):placeholder-shown + span::after,
+  > textarea:not(:focus):placeholder-shown + span::after {
+    border-top-color: transparent;
+  }
+
+  > input:focus,
+  > textarea:focus {
+    border-color: #326fff;
+    border-top-color: transparent;
+    outline: none;
+
+    box-shadow: inset 1px 0 #326fff, inset -1px 0 #326fff, inset 0 -1px #326fff;
+  }
+
+  > input:focus + span,
+  > textarea:focus + span {
+    color: #2d3a40;
+    line-height: 12px;
+  }
+
+  > input:focus + span::before,
+  > input:focus + span::after,
+  > textarea:focus + span::before,
+  > textarea:focus + span::after {
+    border-top-color: #326fff !important;
+
+    box-shadow: inset 0 1px #326fff;
+  }
+
+  > input:disabled,
+  > input:disabled + span,
+  > textarea:disabled,
+  > textarea:disabled + span {
+    border-color: rgba(45, 58, 64, 0.3) !important;
+    border-top-color: transparent !important;
+
+    color: rgba(45, 58, 64, 0.3);
+
+    pointer-events: none;
+  }
+
+  > input:disabled + span::before,
+  > input:disabled + span::after,
+  > textarea:disabled + span::before,
+  > textarea:disabled + span::after {
+    border-top-color: rgba(45, 58, 64, 0.3) !important;
+  }
+
+  > input:disabled:placeholder-shown,
+  > input:disabled:placeholder-shown + span,
+  > textarea:disabled:placeholder-shown,
+  > textarea:disabled:placeholder-shown + span {
+    border-top-color: rgba(45, 58, 64, 0.3) !important;
+  }
+
+  > input:disabled:placeholder-shown + span::before,
+  > input:disabled:placeholder-shown + span::after,
+  > textarea:disabled:placeholder-shown + span::before,
+  > textarea:disabled:placeholder-shown + span::after {
+    border-top-color: transparent !important;
+  }
+
+  &__error {
+    display: flex;
+    align-items: center;
+    width: 225px;
+    height: 22px;
+    padding: 10px;
+    background-color: #f0175c;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 10px;
+    border-radius: 0px 0px 4px 4px;
+  }
+}
+
+.phone {
+  position: relative;
+  width: 280px;
+  margin-bottom: 20px;
+
+  &__localization {
+    position: absolute;
+    padding-top: 6px;
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 47px;
+      border-right: 1px solid rgba(45, 58, 64, 0.3);
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+    }
+  }
+
+  .text-field {
+    margin-bottom: 0;
+
+    input {
+      padding-left: 65px;
+    }
+
+    input:focus + span {
+      padding-left: 0;
+    }
+
+    > input:focus + span::before {
+      min-width: 65px;
+    }
+
+    > input + span::before {
+      min-width: 65px;
+    }
+  }
+}
